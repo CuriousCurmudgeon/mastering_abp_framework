@@ -252,6 +252,7 @@ paket-files/
 *.sln.iml
 
 # ProductManagement
+src/ProductManagement.Web/tempkey.jwk
 src/ProductManagement.Web/Logs/*
 src/ProductManagement.Web.Host/Logs/*
 src/ProductManagement.IdentityServer/Logs/*
