@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace ProductManagement.Data;
+﻿namespace ProductManagement.Data;
 
 public interface IProductManagementDbSchemaMigrator
 {

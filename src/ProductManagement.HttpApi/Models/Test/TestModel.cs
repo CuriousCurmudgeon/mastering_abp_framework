@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ProductManagement.Models.Test;
+﻿namespace ProductManagement.Models.Test;
 
 public class TestModel
 {

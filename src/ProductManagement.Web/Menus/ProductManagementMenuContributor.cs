@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using ProductManagement.Localization;
+﻿using ProductManagement.Localization;
 using ProductManagement.MultiTenancy;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
