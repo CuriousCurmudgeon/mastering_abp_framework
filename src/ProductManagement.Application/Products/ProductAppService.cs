@@ -17,6 +17,13 @@ public class ProductAppService : ProductManagementAppService, IProductAppService
         _categoryRepository = categoryRepository;
     }
 
+    public async Task<ProductDto> GetAsync(Guid id)
+    {
+        return ObjectMapper.Map<Product, ProductDto>(
+            await _productRepository.GetAsync(id)
+        );
+    }
+
     public async Task<PagedResultDto<ProductDto>> GetListAsync(
         PagedAndSortedResultRequestDto input)
     {
@@ -34,6 +41,15 @@ public class ProductAppService : ProductManagementAppService, IProductAppService
         );
     }
 
+    public async Task<ListResultDto<CategoryLookupDto>> GetCategoriesAsync()
+    {
+        var categories = await _categoryRepository.GetListAsync();
+        return new ListResultDto<CategoryLookupDto>(
+            ObjectMapper
+            .Map<List<Category>, List<CategoryLookupDto>>(categories)
+        );
+    }
+
     public async Task CreateAsync(CreateUpdateProductDto input)
     {
         await _productRepository.InsertAsync(
@@ -41,13 +57,9 @@ public class ProductAppService : ProductManagementAppService, IProductAppService
         );
     }
 
-    public async Task<ListResultDto<CategoryLookupDto>>
-    GetCategoriesAsync()
+    public async Task UpdateAsync(Guid id, CreateUpdateProductDto input)
     {
-        var categories = await _categoryRepository.GetListAsync();
-        return new ListResultDto<CategoryLookupDto>(
-            ObjectMapper
-            .Map<List<Category>, List<CategoryLookupDto>>(categories)
-        );
+        var product = await _productRepository.GetAsync(id);
+        ObjectMapper.Map(input, product);
     }
 }
