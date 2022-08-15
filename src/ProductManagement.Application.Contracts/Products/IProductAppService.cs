@@ -14,4 +14,6 @@ public interface IProductAppService : IApplicationService
     Task CreateAsync(CreateUpdateProductDto input);
 
     Task UpdateAsync(Guid id, CreateUpdateProductDto input);
+
+    Task DeleteAsync(Guid id);
 }

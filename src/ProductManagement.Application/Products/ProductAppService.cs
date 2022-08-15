@@ -62,4 +62,9 @@ public class ProductAppService : ProductManagementAppService, IProductAppService
         var product = await _productRepository.GetAsync(id);
         ObjectMapper.Map(input, product);
     }
+
+    public async Task DeleteAsync(Guid id)
+    {
+        await _productRepository.DeleteAsync(id);
+    }
 }
